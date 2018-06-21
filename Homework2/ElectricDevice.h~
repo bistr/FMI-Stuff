@@ -1,0 +1,30 @@
+#define ELECTRICDEVICE_H
+#ifndef ELECTRICDEVICE_H
+
+#include <iostream>
+#include <cstring>
+
+
+using namespace std;
+
+class ElectricDevice
+{
+private:
+	char* m_name;
+	int m_power;
+
+
+public:
+	ElectricDevice();
+	ElectricDevice(const char name, int power);
+	~ElectricDevice();
+	ElectricDevice(const ElectricDevice & other);
+	ElectricDevice & operator =(const ElectricDevice & other);
+	
+	void setName(const char * name);
+	const char * getName() const;
+	void setPower(int power);
+	int getPower() const;
+}
+
+#endif

@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int choice;
+	cout<<"What do you want to edit? Enter a number.";
+	cout<<"1 Brand"<<endl;
+	cout<<"2 Model"<<endl;
+	cout<<"3 Flavor"<<endl;
+	cout<<"4 Milliliters"<<endl;
+	cout<<"5 Price"<<endl;
+	cout<<"6 Count";
+	cin>>choice;
+	cout<<"great"<<endl;
+	return 0;
+}

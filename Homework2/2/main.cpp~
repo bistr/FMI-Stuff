@@ -1,0 +1,18 @@
+#include <iostream>
+#include "Vector.h"
+#include "Pair.h"
+#include "Settings.h"
+using namespace std;
+
+int main()
+{
+	Pair<const char *>first("jaba","yo");
+	Pair<const char *>second(first);
+	//first.setKey("first");
+	//second.setKey("second");
+	Settings <int>bisi(5);
+	cout<<"Key: "<<first.getKey()<<" Value: "<<first.getValue()<<endl;
+	cout<<"Key: "<<second.getKey()<<" Value: "<<second.getValue()<<endl;
+	cout<<endl;
+	return 0;
+}

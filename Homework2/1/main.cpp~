@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstring>
+
+#include "ElectricDevice.h"
+#include "ElectricNet.h"
+#include "Vector.h"
+using namespace std;
+
+
+
+
+int main()
+{
+	ElectricDevice charger("charger",4);
+	ElectricDevice wm("washing machine",12);
+	ElectricDevice kettle("kettle",3);
+	ElectricDevice oven("oven",10);
+	ElectricDevice refrigerator("refrigerator",17);
+	ElectricDevice bisiCopy=charger;
+	bisiCopy.setPower(2);
+	bisiCopy.setName("George");
+	ElectricNet neti(10);
+	neti+=charger;
+	neti+=bisiCopy;
+	ElectricNet neti3=neti+charger;
+	cout<<"-----------"<<endl;
+
+	neti3.print();
+	cout<<"-----------"<<endl;
+	neti3++;
+	neti3++;
+	neti3++;
+	neti3++;
+	neti3+=wm;
+	neti3+=oven;
+	neti3+=refrigerator;
+	neti3+=kettle;
+
+	cout<<neti3.getMaxPower()<<endl;
+	cout<<neti3.getConsumption()<<endl;
+	neti3++;
+	cout<<neti3.getMaxPower()<<endl;
+	neti3--;
+	neti3--;
+	cout<<neti3.getMaxPower()<<endl;
+	neti3--;
+
+	neti3-=oven;
+	cout<<"------------"<<endl;
+	neti3.print();
+	cout<<"---------"<<endl;
+
+	ElectricDevice kt2=neti3["kettle"];
+	cout<<kt2.getPower()<<endl;
+
+
+	cout<<endl<<"got here"<<endl;
+
+
+	return 0;
+}

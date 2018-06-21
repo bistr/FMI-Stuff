@@ -1,0 +1,139 @@
+#include <iostream>
+#include <cstring>
+#include <exception>
+#include <stdexcept>
+#include "ElectricDevice.h"
+#include "ElectricNet.h"
+
+ElectricNet::ElectricNet()
+{
+	this->maxPower=0;
+	this->consumption=0;
+}
+
+ElectricNet::ElectricNet(long int maxPower)
+{
+	this->maxPower=maxPower;
+	this->consumption=0;
+}
+
+ElectricNet::ElectricNet(ElectricNet const & other)
+{
+	this->consumption=other.consumption;
+	this->maxPower=other.maxPower;
+	this->devices=other.devices;
+
+}
+
+ElectricNet & ElectricNet::operator =(const ElectricNet & other)
+{
+	if (this!=&other){
+		this->consumption=other.consumption;
+		this->maxPower=other.maxPower;
+		this->devices=other.devices;
+	}
+	return *this;
+}
+
+
+long int ElectricNet::getMaxPower()
+{
+	return this->maxPower;
+}
+
+long int ElectricNet::getConsumption()
+{
+	return this->consumption;
+}
+
+
+ElectricNet& ElectricNet:: operator+=(const ElectricDevice& newDevice)
+{
+	if((consumption+newDevice.getPower())>maxPower)
+	{
+		cout<<"Too much consumption! Not adding device."<<endl;
+	}
+
+	else
+	{
+		this->devices.add(new ElectricDevice(newDevice));
+		this->consumption+=newDevice.getPower();
+	}
+}
+
+
+ElectricNet ElectricNet::operator+(const ElectricDevice& newDevice)
+{	
+	ElectricNet newNet=*this;
+	newNet+=newDevice;
+	return newNet;
+}
+
+bool ElectricNet::operator!()
+{
+	return this->devices.getSize()>0;
+}
+
+
+void ElectricNet::operator++(int)
+{
+	this->maxPower*=2;
+}
+
+void ElectricNet::operator--(int)
+{
+	if(maxPower/2<consumption)
+	{
+		cout<<"Will overload electric net. Not halving max power."<<endl;
+	}
+	else
+	{
+		maxPower/=2;
+	}
+}
+
+ElectricNet & ElectricNet::operator-=(const ElectricDevice & device)
+{
+	char * targetName=device.getName();
+	for(int i=0;i<devices.getSize();i++)
+	{
+		char * devName=devices[i]->getName();
+		if(strcmp(devName,targetName)==0)
+		{
+			this->devices.removeAt(i);
+
+			consumption-=devices[i]->getPower();
+		}
+	}
+	return *this;
+}
+
+void ElectricNet::print()
+{
+	for(int i=0;i<devices.getSize();i++)
+	{
+		cout<<devices[i]->getName()<<"\t"<<devices[i]->getPower()<<endl;
+	}
+}
+
+ElectricNet ElectricNet::operator-(const ElectricDevice & device)
+{
+	ElectricNet newNet=*this;
+	newNet-=device;
+	return newNet;
+}
+
+
+ElectricDevice & ElectricNet::operator[](const char * name)
+{
+	for(int i=0;i<devices.getSize();i++)
+	{
+		char * devName=devices[i]->getName();
+		if(strcmp(devName,name)==0)
+		{
+			return *devices[i];
+		}
+	}
+	cout<<"No such device in network."<<endl;
+	return *(new ElectricDevice());
+}
