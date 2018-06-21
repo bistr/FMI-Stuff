@@ -1,0 +1,114 @@
+#include <iostream>
+#include "Company.h"
+#include "PrivateCompany.h"
+#include "StateOwnedCompany.h"
+#include "Consortium.h"
+using namespace std;
+
+int main()
+{
+	StateOwnedCompany bisi("bisi");
+	StateOwnedCompany bisi2("bisi2");
+	PrivateCompany bisi3("bisi3",3);
+	PrivateCompany bisi4("bisi4",2);
+	PrivateCompany bisi5("bisi5",4);
+	bisi.perform("Give money to poor");
+	bisi.perform("Kill people");
+	bisi.perform("Rob a bank");
+	bisi.perform("Make birdhouses");
+	bisi.perform("Clean the Missisippi");
+	bisi.perform("Commit treason");
+	bisi.perform("Give money to poor");
+	Consortium gigant("ugggggggg");
+	Consortium gigant2("copycats");
+	gigant2.addContractor(bisi5);
+	gigant2.addContractor(bisi4);
+	gigant.addContractor(bisi);
+	gigant.addContractor(bisi3);
+	gigant.addContractor(bisi2);
+	gigant.addContractor(gigant2);
+	gigant.printStatus();
+	gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Stop global warming");
+	gigant.perform("End war");
+	gigant.perform("Fry zucchini");
+		gigant.perform("Feed the poor");
+	gigant.perform("Fry zucchini");
+
+	gigant.printStatus();
+	gigant.removeContractor(bisi2);
+	gigant.printStatus();
+	cout<<gigant;
+	return 0;
+}
